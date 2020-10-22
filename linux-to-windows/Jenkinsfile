@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    environment {
+        WINDOWS_USER="yan"
+        WINDOWS_SERVER="172.28.128.6"
+        DESTINATION_PATH="C:/Users/Yan/test/"
+    }
+
+    stages {
+        stage('Build App') {
+            steps {
+                sh "cd scripts ; ./build-app.sh"
+            }
+        }
+
+        stage ('Test App') {
+            steps {
+                sh "cd scripts ; ./test-app.sh"
+            }
+        }
+
+        stage ('Deploy App') {
+            steps {
+                sh "scripts/deploy-app.sh ${WINDOWS_USER} ${WINDOWS_SERVER} ${DESTINATION_PATH}"
+            }
+        }
+    }
+}
