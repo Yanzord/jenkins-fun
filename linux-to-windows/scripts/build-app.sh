@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd app/
+cd ../app/
 
 dotnet publish -c Release -r win10-x64
