@@ -10,19 +10,19 @@ pipeline {
     stages {
         stage('Build App') {
             steps {
-                sh "cd scripts ; ./build-app.sh"
+                sh "cd linux-to-windows/scripts ; ./build-app.sh"
             }
         }
 
         stage ('Test App') {
             steps {
-                sh "cd scripts ; ./test-app.sh"
+                sh "cd linux-to-windows/scripts ; ./test-app.sh"
             }
         }
 
         stage ('Deploy App') {
             steps {
-                sh "scripts/deploy-app.sh ${WINDOWS_USER} ${WINDOWS_SERVER} ${DESTINATION_PATH}"
+                sh "linux-to-windows/scripts/deploy-app.sh ${WINDOWS_USER} ${WINDOWS_SERVER} ${DESTINATION_PATH}"
             }
         }
     }
