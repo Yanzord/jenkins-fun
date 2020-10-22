@@ -22,7 +22,7 @@ pipeline {
 
         stage ('Deploy App') {
             steps {
-                sh "linux-to-windows/scripts/deploy-app.sh ${WINDOWS_USER} ${WINDOWS_SERVER} ${DESTINATION_PATH}"
+                sh "cd linux-to-windows/scripts ; ./deploy-app.sh ${WINDOWS_USER} ${WINDOWS_SERVER} ${DESTINATION_PATH}"
             }
         }
     }
