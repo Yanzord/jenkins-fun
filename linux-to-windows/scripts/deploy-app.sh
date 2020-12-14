@@ -6,4 +6,4 @@ destination_path=$3
 
 cd ../
 
-scp -r app/* ${windows_user}@${windows_server}:${destination_path}
+rsync -agov -r --exclude={'*.ini','*.INI','*.xml','*.XML','*.config','*.CONFIG'} app/* ${windows_user}@${windows_server}:${destination_path}

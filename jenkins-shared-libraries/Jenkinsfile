@@ -1,0 +1,21 @@
+@Library('jenkins-shared-library')_
+
+def greeting = getGreeting("Yan")
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                greeting.sayHello
+            }
+        }
+
+        stage('Goodbye') {
+            steps {
+                greeting.sayGoodbye
+            }
+        }
+    }
+}
